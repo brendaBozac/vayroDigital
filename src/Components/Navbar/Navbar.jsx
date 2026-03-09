@@ -1,5 +1,6 @@
 import styles from "./Navbar.module.css"
 import CartWidget from "../CartWidget/CartWidget"
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
 
@@ -7,16 +8,29 @@ const Navbar = () => {
 
     <nav className={styles.navbar}>
 
-      <h1 className={styles.logo}>Vayro Digital</h1>
+        <h1 className={styles.logo}>Vayro Digital</h1>
 
-      <ul className={styles.menu}>
-        <li>Electronics</li>
-        <li>Jewelery</li>
-        <li>Men's clothing</li>
-        <li>Women's clothing</li>
-      </ul>
+        <ul className={styles.menu}>
 
-      <CartWidget />
+            <li>
+                <Link to="/category/electronics">Electronics</Link>
+            </li>
+
+            <li>
+                <Link to="/category/jewelery">Jewelery</Link>
+            </li>
+
+            <li>
+                <Link to="/category/men's clothing">Men's clothing</Link>
+            </li>
+
+            <li>
+                <Link to="/category/women's clothing">Women's clothing</Link>
+            </li>
+
+        </ul>
+
+        <CartWidget />
 
     </nav>
 
