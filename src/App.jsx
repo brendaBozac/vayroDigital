@@ -5,6 +5,7 @@ import './App.css' */
 
 import ItemListContainer from "./Containers/ItemListContainer/ItemListContainer"
 import Navbar from "./Components/Navbar/Navbar"
+import { Routes, Route } from "react-router-dom"
 
 function App() {
  
@@ -14,9 +15,9 @@ function App() {
 
       <Navbar />
 
-      <div>
-      <ItemListContainer />
-      </div>
+      <Routes>
+        <Route path="/" element={<ItemListContainer />} />
+      </Routes>
       
   
     </>
