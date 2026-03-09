@@ -1,19 +1,27 @@
+import styles from "./Item.module.css"
+
 const Item = ({ product }) => {
 
   return (
-    <div>
+
+    <article className={styles.card}>
+
+        <div>
+            <img 
+                className={styles.image}
+                src={product.image}
+                alt={product.title}
+            />
+        </div>
+
       <h3>{product.title}</h3>
 
-      <img 
-        src={product.image} 
-        alt={product.title}
-        width="200"
-      />
-
-      <p>Price: ${product.price}</p>
+      <p>${product.price}</p>
 
       <button>View detail</button>
-    </div>
+
+    </article>
+
   )
 
 }

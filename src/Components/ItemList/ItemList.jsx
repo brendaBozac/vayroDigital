@@ -1,9 +1,10 @@
 import Item from "../Item/Item"
+import styles from "./ItemList.module.css"
 
 const ItemList = ({ products }) => {
 
   return (
-    <div>
+    <div className={styles.container}>
       {products.map(product => (
         <Item key={product.id} product={product} />
       ))}
