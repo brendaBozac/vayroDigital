@@ -1,4 +1,5 @@
 import styles from "./Navbar.module.css"
+import CartWidget from "../CartWidget/CartWidget"
 
 const Navbar = () => {
 
@@ -15,9 +16,7 @@ const Navbar = () => {
         <li>Women's clothing</li>
       </ul>
 
-      <div className={styles.cart}>
-        🛒 0
-      </div>
+      <CartWidget />
 
     </nav>
 

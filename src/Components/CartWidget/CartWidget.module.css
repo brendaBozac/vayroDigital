@@ -1,0 +1,11 @@
+.cart {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.counter {
+  font-size: 14px;
+}
