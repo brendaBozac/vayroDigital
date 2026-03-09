@@ -12,10 +12,20 @@
   font-size: 24px;
 }
 
+.logo a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .menu {
   display: flex;
   gap: 20px;
   list-style: none;
+}
+
+.menu a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .menu li {

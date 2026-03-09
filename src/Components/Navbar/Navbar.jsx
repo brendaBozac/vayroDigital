@@ -8,7 +8,9 @@ const Navbar = () => {
 
     <nav className={styles.navbar}>
 
-        <h1 className={styles.logo}>Vayro Digital</h1>
+        <h1 className={styles.logo}>
+            <Link to="/">Vayro Digital</Link>
+        </h1>
 
         <ul className={styles.menu}>
 
