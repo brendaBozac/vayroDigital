@@ -1,0 +1,21 @@
+.container {
+  margin-top: 20px;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.counter button {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.addButton {
+  padding: 8px 16px;
+  cursor: pointer;
+}

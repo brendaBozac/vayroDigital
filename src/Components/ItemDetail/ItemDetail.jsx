@@ -1,29 +1,39 @@
 import styles from "./ItemDetail.module.css"
+import ItemCount from "../ItemCount/ItemCount"
 
 const ItemDetail = ({ product }) => {
 
-  return (
+    const handleAdd = (quantity) => {
+        console.log("Cantidad agregada:", quantity)
+    }
 
-    <article className={styles.detail}>
+    return (
 
-      <img 
-        src={product.image}
-        alt={product.title}
-        className={styles.image}
-      />
+        <article className={styles.detail}>
 
-      <h2>{product.title}</h2>
+            <img 
+                src={product.image}
+                alt={product.title}
+                className={styles.image}
+            />
 
-      <p className={styles.price}>${product.price}</p>
+            <h2>{product.title}</h2>
 
-      <p className={styles.description}>
-        {product.description}
-      </p>
+            <p className={styles.price}>${product.price}</p>
 
-    </article>
+            <p className={styles.description}>
+                {product.description}
+            </p>
 
-  )
+            <ItemCount onAdd={handleAdd} />
+
+        </article>
+
+    )
 
 }
+
+
+
 
 export default ItemDetail
