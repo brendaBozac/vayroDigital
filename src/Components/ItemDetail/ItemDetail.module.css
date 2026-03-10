@@ -1,0 +1,19 @@
+.detail {
+  max-width: 500px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.image {
+  width: 100%;
+  max-width: 300px;
+}
+
+.price {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.description {
+  color: #555;
+}
