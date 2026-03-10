@@ -6,6 +6,7 @@ import './App.css' */
 import ItemListContainer from "./Containers/ItemListContainer/ItemListContainer"
 import Navbar from "./Components/Navbar/Navbar"
 import { Routes, Route } from "react-router-dom"
+import ItemDetailContainer from "./Containers/ItemDetailContainer/ItemDetailContainer"
 
 function App() {
  
@@ -19,6 +20,9 @@ function App() {
         <Route path="/" element={<ItemListContainer />} />
 
         <Route path="/category/:categoryId" element={<ItemListContainer />} />
+
+        <Route path="/product/:productId" element={<ItemDetailContainer />} />
+        
       </Routes>
       
   
