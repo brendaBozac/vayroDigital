@@ -1,10 +1,15 @@
 import styles from "./ItemDetail.module.css"
 import ItemCount from "../ItemCount/ItemCount"
 
+import { useContext } from "react"
+import { CartContext } from "../../Context/CartContext"
+
 const ItemDetail = ({ product }) => {
 
+    const { addItem } = useContext(CartContext)
+
     const handleAdd = (quantity) => {
-        console.log("Cantidad agregada:", quantity)
+        addItem(product, quantity)
     }
 
     return (

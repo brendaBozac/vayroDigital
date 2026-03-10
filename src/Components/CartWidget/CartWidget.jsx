@@ -1,13 +1,23 @@
 import { FaShoppingCart } from "react-icons/fa"
 import styles from "./CartWidget.module.css"
+import { useContext } from "react"
+import { CartContext } from "../../Context/CartContext"
 
 const CartWidget = () => {
 
+  const { cart } = useContext(CartContext)
+
+  console.log("cartWidget cart:", cart)
+
+  const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0)
+
   return (
+
     <div className={styles.cart}>
       <FaShoppingCart />
-      <span className={styles.counter}>0</span>
+      <span className={styles.counter}>{totalQuantity}</span>
     </div>
+
   )
 
 }
