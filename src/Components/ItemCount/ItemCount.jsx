@@ -23,7 +23,7 @@ const ItemCount = ({ onAdd }) => {
 
     <div className={styles.container}>
 
-        <h3>CONTADOR</h3>
+        {/* <h3>CONTADOR</h3> */}
 
       <div className={styles.counter}>
 

@@ -8,12 +8,30 @@ export const CartProvider = ({ children }) => {
 
   const addItem = (product, quantity) => {
 
-    const newItem = {
-      ...product,
-      quantity
+    const existingProduct = cart.find(item => item.id === product.id)
+
+    if (existingProduct) {
+
+      const updatedCart = cart.map(item =>
+        item.id === product.id
+          ? { ...item, quantity: item.quantity + quantity }
+          : item
+      )
+
+      setCart(updatedCart)
+
+    } else {
+
+      const newItem = {
+        ...product,
+        quantity
+      }
+
+      setCart([...cart, newItem])
+
+      console.log("Cart actualizado:", updatedCart)
     }
 
-    setCart([...cart, newItem])
   }
 
   return (
