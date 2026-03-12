@@ -1,13 +1,9 @@
-/* import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css' */
-
 import ItemListContainer from "./Containers/ItemListContainer/ItemListContainer"
 import Navbar from "./Components/Navbar/Navbar"
 import { Routes, Route } from "react-router-dom"
 import ItemDetailContainer from "./Containers/ItemDetailContainer/ItemDetailContainer"
 import Cart from "./Components/Cart/Cart"
+import Checkout from "./Components/Checkout/Checkout"
 
 function App() {
  
@@ -25,6 +21,8 @@ function App() {
         <Route path="/product/:productId" element={<ItemDetailContainer />} />
 
         <Route path="/cart" element={<Cart />} />
+
+        <Route path="/checkout" element={<Checkout />} />
         
       </Routes>
       
