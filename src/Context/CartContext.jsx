@@ -29,14 +29,22 @@ export const CartProvider = ({ children }) => {
 
       setCart([...cart, newItem])
 
-      console.log("Cart actualizado:", updatedCart)
     }
 
   }
 
+  const removeItem = (id) => {
+    const updatedCart = cart.filter(item => item.id !== id)
+    setCart(updatedCart)
+  }
+
+  const clearCart = () => {
+    setCart([])
+  }
+
   return (
 
-    <CartContext.Provider value={{ cart, addItem }}>
+    <CartContext.Provider value={{ cart, addItem, removeItem, clearCart }}>
 
       {children}
 
