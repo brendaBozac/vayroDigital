@@ -6,12 +6,11 @@ const Cart = () => {
 
   // const { cart } = useContext(CartContext)
 
-  const { cart, removeItem, clearCart } = useContext(CartContext)
+  // const { cart, removeItem, clearCart } = useContext(CartContext)
 
-  const totalPrice = cart.reduce(
-    (acc, product) => acc + product.price * product.quantity,
-    0
-  )
+  const { cart, removeItem, clearCart, getTotalPrice } = useContext(CartContext)
+
+  const totalPrice = getTotalPrice() 
 
   return (
 
@@ -47,6 +46,7 @@ const Cart = () => {
           <div>
               <h3>Total: ${totalPrice}</h3>
           </div>
+          
 
           <Link to="/checkout">
             <button>Finalizar compra</button>
