@@ -25,7 +25,7 @@ const ItemDetail = ({ product }) => {
         <article className={styles.detail}>
 
             <img 
-                src={product.image}
+                src={product.img}
                 alt={product.title}
                 className={styles.image}
             />

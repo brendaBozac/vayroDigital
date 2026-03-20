@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react"
-import { getProducts, getProductsByCategory } from "../../Data/asyncMock"
+// import { getProducts, getProductsByCategory } from "../../Data/asyncMock"
 import ItemList from "../../Components/ItemList/ItemList"
 import { useParams } from "react-router-dom"
+
+import { collection, getDocs, query, where } from "firebase/firestore"
+import { db } from "../../services/db"
 
 
 const ItemListContainer = () => {
@@ -12,19 +15,25 @@ const ItemListContainer = () => {
 
   useEffect(() => {
 
-    if (categoryId) {
+  const productsRef = collection(db, "products")
 
-      getProductsByCategory(categoryId)
-        .then(res => setProducts(res))
+  const q = categoryId
+    ? query(productsRef, where("category", "==", categoryId))
+    : productsRef
 
-    } else {
+  getDocs(q)
+    .then(snapshot => {
 
-      getProducts()
-        .then(res => setProducts(res))
+      const productsAdapted = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }))
 
-    }
+      setProducts(productsAdapted)
 
-  }, [categoryId])
+    })
+
+}, [categoryId])
 
   return (
     <div>
