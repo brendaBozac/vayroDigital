@@ -5,8 +5,15 @@ import ItemDetailContainer from "./Containers/ItemDetailContainer/ItemDetailCont
 import Cart from "./Components/Cart/Cart"
 import Checkout from "./Components/Checkout/Checkout"
 
+/* 
+import { seedProducts } from "./services/seedProducts"
+import { useEffect } from "react" */
+
 function App() {
- 
+ /* 
+  useEffect(() => {
+    seedProducts()
+  }, []) */
 
   return (
     <>
@@ -30,5 +37,7 @@ function App() {
     </>
   )
 }
+
+
 
 export default App
