@@ -20,6 +20,10 @@ const ItemDetail = ({ product }) => {
         setQuantityAdded(quantity)
     }
 
+    const stockAvailable = itemInCart
+        ? product.stock - itemInCart.quantity
+        : product.stock
+
     return (
 
         <article className={styles.detail}>
@@ -38,11 +42,18 @@ const ItemDetail = ({ product }) => {
                 {product.description}
             </p>
 
+            <p>Stock disponible: {product.stock}</p>
+
             {itemInCart && (
                 <p>Ya tienes {itemInCart.quantity} en el carrito</p>
             )}
 
-            {quantityAdded > 0 ? (
+            {product.stock > 0 && product.stock <= 3 && (
+                <p>⚠ Últimas unidades disponibles</p>
+            )}
+
+            {/* CASO 1: ya agregaste algo en esta sesión */}
+            {quantityAdded > 0 && (
 
                 <div>
 
@@ -58,11 +69,33 @@ const ItemDetail = ({ product }) => {
 
                 </div>
 
-            ) : (
+            )}
+
+            {/* CASO 2: ya alcanzaste el máximo disponible */}
+            {quantityAdded === 0 && stockAvailable === 0 && (
+
+                <div>
+
+                    <p>Ya agregaste todas las unidades disponibles</p>
+
+                    <Link to="/cart">
+                        <button>Ir al carrito</button>
+                    </Link>
+
+                    <Link to="/">
+                        <button>Seguir comprando</button>
+                    </Link>
+
+                </div>
+
+            )}
+
+            {/* CASO 3: todavía puede agregar */}
+            {quantityAdded === 0 && stockAvailable > 0 && (
 
                 <ItemCount
                     initial={1}
-                    stock={10}
+                    stock={stockAvailable}
                     onAdd={handleAdd}
                 />
 

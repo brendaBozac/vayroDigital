@@ -2,7 +2,7 @@ import { useState, useContext } from "react"
 import { CartContext } from "../../Context/CartContext"
 import { Link } from "react-router-dom"
 
-import { addDoc, collection, serverTimestamp } from "firebase/firestore"
+import { addDoc, collection, serverTimestamp, doc, updateDoc } from "firebase/firestore"
 import { db } from "../../services/db"
 
 const Checkout = () => {
@@ -52,14 +52,27 @@ const Checkout = () => {
       date: serverTimestamp()  //Esto usa el tiempo del servidor de Cloud Firestore
     }
 
-      addDoc(collection(db, "orders"), order)
-    .then((docRef) => {
-      setOrderId(docRef.id)
-      clearCart()
+     addDoc(collection(db, "orders"), order)
+  .then((docRef) => {
+
+    // actualizar stock de cada producto
+    cart.forEach(item => {
+
+      const productRef = doc(db, "products", item.id)
+
+      updateDoc(productRef, {
+        stock: item.stock - item.quantity
+      })
+
     })
-    .catch((error) => {
-      console.error("Error creando la orden:", error)
-    })
+
+    setOrderId(docRef.id)
+    clearCart()
+
+  })
+  .catch(error => {
+    console.error("Error creando la orden:", error)
+  })
   }
 
   if (cart.length === 0 && !orderId) {

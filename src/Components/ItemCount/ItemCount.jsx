@@ -1,14 +1,14 @@
 import { useState } from "react"
 import styles from "./ItemCount.module.css"
 
-const ItemCount = ({ onAdd }) => {
+const ItemCount = ({ stock, initial = 1, onAdd }) => {
 
     console.log("ItemCount render")
 
-  const [count, setCount] = useState(1)
+  const [count, setCount] = useState(initial)
 
   const increment = () => {
-    if (count < 9) {
+    if (count < stock) {
       setCount(count + 1)
     }
   }
