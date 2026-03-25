@@ -2,6 +2,9 @@ import { useState, useContext } from "react"
 import { CartContext } from "../../Context/CartContext"
 import { Link } from "react-router-dom"
 
+import { addDoc, collection, serverTimestamp } from "firebase/firestore"
+import { db } from "../../services/db"
+
 const Checkout = () => {
 
   const { cart, clearCart, getTotalPrice } = useContext(CartContext)
@@ -46,14 +49,17 @@ const Checkout = () => {
 
       total: getTotalPrice(),
 
-      date: new Date()
+      date: serverTimestamp()  //Esto usa el tiempo del servidor de Cloud Firestore
     }
 
-    console.log("Orden creada:", order)
-
-    setOrderId("demo-order-123")
-
-    clearCart()
+      addDoc(collection(db, "orders"), order)
+    .then((docRef) => {
+      setOrderId(docRef.id)
+      clearCart()
+    })
+    .catch((error) => {
+      console.error("Error creando la orden:", error)
+    })
   }
 
   if (cart.length === 0 && !orderId) {
