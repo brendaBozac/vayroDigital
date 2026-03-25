@@ -107,3 +107,5 @@ const ItemDetail = ({ product }) => {
 }
 
 export default ItemDetail
+
+//terminada la logica
