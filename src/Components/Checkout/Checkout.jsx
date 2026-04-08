@@ -3,7 +3,7 @@ import { CartContext } from "../../Context/CartContext"
 import { Link } from "react-router-dom"
 
 import { addDoc, collection, serverTimestamp, doc, updateDoc } from "firebase/firestore"
-import { db } from "../../services/db"
+import { db } from "../../Services/db"
 
 const Checkout = () => {
 
@@ -90,7 +90,13 @@ const Checkout = () => {
     return (
       <section>
         <h2>¡Compra realizada con éxito!</h2>
-        <p>ID de compra: {orderId}</p>
+        <h3>Gracias por tu compra</h3>
+        <p>Te enviaremos un email con toda la informacion para el seguimiento de tu operación.</p>
+        <p>Tu número de orden es: {orderId}</p>
+
+        <Link to="/">
+          <button>Volver al inicio</button>
+        </Link>
       </section>
     )
   }
