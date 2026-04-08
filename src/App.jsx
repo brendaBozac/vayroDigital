@@ -4,16 +4,19 @@ import { Routes, Route } from "react-router-dom"
 import ItemDetailContainer from "./Containers/ItemDetailContainer/ItemDetailContainer"
 import Cart from "./Components/Cart/Cart"
 import Checkout from "./Components/Checkout/Checkout"
-
 /* 
-import { seedProducts } from "./services/seedProducts"
-import { useEffect } from "react" */
+import { useEffect } from "react"
+import { seedProducts } from "./Services/seedProducts" */
+
+
+
 
 function App() {
- /* 
-  useEffect(() => {
+ 
+    /* useEffect(() => {
+    console.log("App cargada")
     seedProducts()
-  }, []) */
+    }, []) */
 
   return (
     <>

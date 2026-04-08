@@ -15,19 +15,19 @@ const Navbar = () => {
         <ul className={styles.menu}>
 
             <li>
-                <Link to="/category/electronics">Electronics</Link>
+                <Link to="/category/notebooks">Notebooks</Link>
             </li>
 
             <li>
-                <Link to="/category/jewelery">Jewelery</Link>
+                <Link to="/category/smartphones">Smartphones</Link>
             </li>
 
             <li>
-                <Link to="/category/men's clothing">Men's clothing</Link>
+                <Link to="/category/audio">Audio</Link>
             </li>
 
             <li>
-                <Link to="/category/women's clothing">Women's clothing</Link>
+                <Link to="/category/accessories">Accessories</Link>
             </li>
 
         </ul>
