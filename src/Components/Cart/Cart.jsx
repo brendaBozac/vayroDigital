@@ -1,68 +1,61 @@
 import { useContext } from "react"
 import { CartContext } from "../../Context/CartContext"
 import { Link } from "react-router-dom"
+import styles from "./Cart.module.css"
 
 const Cart = () => {
-
-  // const { cart } = useContext(CartContext)
-
-  // const { cart, removeItem, clearCart } = useContext(CartContext)
-
   const { cart, removeItem, clearCart, getTotalPrice } = useContext(CartContext)
-
   const totalPrice = getTotalPrice() 
 
   return (
-
-    <section>
-
-      <h2>Carrito de compras</h2>
+    <section className={styles.cart}>
+      <h2 className={styles.title}>Carrito de compras</h2>
 
       {cart.length === 0 ? (
-
-        <p>El carrito está vacío</p>
-
+        <p className={styles.emptyCart}>El carrito está vacío</p>
       ) : (
-
         <>
-          {cart.map(product => (
-            <div key={product.id}>
-
-              <h3>{product.title}</h3>
-
-              <p>Precio: ${product.price}</p>
-
-              <p>Cantidad: {product.quantity}</p>
-
-              <p>Subtotal: ${product.price * product.quantity}</p>
-
-              <button onClick={() => removeItem(product.id)}>
-                Eliminar
-              </button>
-
-            </div>
-          ))}
-
-          <div>
-              <h3>Total: ${totalPrice}</h3>
+          <div className={styles.productList}>
+            {cart.map(product => (
+              <div key={product.id} className={styles.productItem}>
+                {/* Imagen miniatura */}
+                <img 
+                  src={product.img} 
+                  alt={product.title} 
+                  className={styles.productImage} 
+                />
+                <h3 className={styles.productTitle}>{product.title}</h3>
+                <p className={styles.productPrice}>Precio: ${product.price}</p>
+                <p className={styles.productQuantity}>Cantidad: {product.quantity}</p>
+                <p className={styles.productSubtotal}>Subtotal: ${product.price * product.quantity}</p>
+                <button 
+                  className={styles.removeButton}
+                  onClick={() => removeItem(product.id)}
+                >
+                  Eliminar
+                </button>
+              </div>
+            ))}
           </div>
-          
 
-          <Link to="/checkout">
-            <button>Finalizar compra</button>
-          </Link>
+          <div className={styles.totalSection}>
+            <h3 className={styles.totalText}>
+              Total: <span>${totalPrice}</span>
+            </h3>
+          </div>
 
-          <button onClick={clearCart}>
-            Vaciar carrito
-          </button>
+          <div className={styles.actions}>
+            <Link to="/checkout">
+              <button className={styles.checkoutButton}>Finalizar compra</button>
+            </Link>
+            <button className={styles.clearButton} onClick={clearCart}>
+              Vaciar carrito
+            </button>
+          </div>
         </>
-
       )}
-
     </section>
-
   )
-
 }
 
 export default Cart

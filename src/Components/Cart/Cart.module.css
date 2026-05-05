@@ -1,0 +1,215 @@
+/* Cart.module.css - versión actualizada con imagen */
+
+.cart {
+  max-width: 1120px;
+  margin: 2rem auto;
+  padding: 0 1.5rem 2rem;
+  background-color: #ffffff;
+  border-radius: 32px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+}
+
+.title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #4a3b2c;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(212, 163, 115, 0.3);
+  display: inline-block;
+}
+
+.emptyCart {
+  text-align: center;
+  padding: 3rem;
+  background-color: #fefae0ff;
+  border-radius: 24px;
+  color: #7a6a5a;
+  font-size: 1.1rem;
+}
+
+.productList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Grid de productos: ahora con 6 columnas (imagen + título + precio + cantidad + subtotal + eliminar) */
+.productItem {
+  display: grid;
+  grid-template-columns: 60px 2fr 1fr 1fr 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  background-color: #fefae0ff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 24px;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(212, 163, 115, 0.15);
+}
+
+.productItem:hover {
+  border-color: rgba(212, 163, 115, 0.4);
+  background-color: #fff9ef;
+  transform: translateX(4px);
+}
+
+/* Imagen miniatura */
+.productImage {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 12px;
+  background-color: #e9edc9ff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.productTitle {
+  font-weight: 600;
+  color: #4a3b2c;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.productPrice,
+.productQuantity,
+.productSubtotal {
+  color: #5a4a3a;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.removeButton {
+  background-color: #faedcdff;
+  color: #b45f2b;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 40px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: fit-content;
+  justify-self: end;
+}
+
+.removeButton:hover {
+  background-color: #f5e2b9;
+  transform: scale(1.02);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.totalSection {
+  background-color: #e9edc9ff;
+  padding: 1rem 1.5rem;
+  border-radius: 24px;
+  text-align: right;
+  margin: 1.5rem 0;
+}
+
+.totalText {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #4a3b2c;
+  margin: 0;
+}
+
+.totalText span {
+  color: #d4a373ff;
+  font-size: 1.8rem;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.checkoutButton {
+  background-color: #ccd5aeff;
+  color: #2d3e2b;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 40px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+  font-family: inherit;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.checkoutButton:hover {
+  background-color: #bec99c;
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.clearButton {
+  background-color: transparent;
+  border: 1px solid #ccd5aeff;
+  color: #4a3b2c;
+  padding: 0.6rem 1.5rem;
+  border-radius: 40px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.clearButton:hover {
+  background-color: #e9edc9ff;
+  border-color: #bec99c;
+  transform: scale(1.02);
+}
+
+/* Responsive: en móvil la imagen aparece arriba y todo en columna */
+@media (max-width: 768px) {
+  .cart {
+    padding: 0 1rem 1.5rem;
+    margin: 1rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .productItem {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .productImage {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+  }
+
+  .removeButton {
+    justify-self: center;
+    margin-top: 0.5rem;
+  }
+
+  .totalSection {
+    text-align: center;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+}
+
+/* Ajuste tablet: imagen más pequeña y columnas más flexibles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .productItem {
+    grid-template-columns: 50px 1.5fr 1fr 1fr 1fr auto;
+    gap: 0.8rem;
+    padding: 0.8rem 1rem;
+  }
+}

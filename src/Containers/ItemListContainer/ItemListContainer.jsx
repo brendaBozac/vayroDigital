@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 // import { getProducts, getProductsByCategory } from "../../Data/asyncMock"
 import ItemList from "../../Components/ItemList/ItemList"
 import { useParams } from "react-router-dom"
-
+import styles from "./ItemListContainer.module.css"
 import { collection, getDocs, query, where } from "firebase/firestore"
 import { db } from "../../servicios/db"
 
@@ -36,14 +36,10 @@ const ItemListContainer = () => {
 }, [categoryId])
 
   return (
-    <div>
-      <h2>Products</h2>
+  
+    <div className={styles.container}>
+      <h2 className={styles.title}>Productos</h2>
       <ItemList products={products} />
-{/* 
-      {products.map(product => (
-        <p key={product.id}>{product.title}</p>
-      ))} */}
-
     </div>
   )
 }

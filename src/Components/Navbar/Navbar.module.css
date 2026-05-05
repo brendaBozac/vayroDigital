@@ -2,36 +2,87 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  padding: 20px;
-  background-color: black;
-  color: white;
+  padding: 0.75rem 2rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(212, 163, 115, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .logo a {
   text-decoration: none;
-  color: inherit;
+  color: #8b5a2b;
+  transition: color 0.2s ease;
+}
+
+.logo a:hover {
+  color: #d4a373ff;
 }
 
 .menu {
   display: flex;
-  gap: 20px;
+  gap: 0.75rem;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.menu a {
+.menu li a {
   text-decoration: none;
-  color: inherit;
+  color: #4b3b2c;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 40px;            /* redondeado como el CartWidget */
+  transition: all 0.2s ease;
+  background-color: transparent;
+  border: 1px solid transparent;
 }
 
-.menu li {
-  cursor: pointer;
+.menu li a:hover {
+  background-color: #ccd5aeff;    /* tea-green */
+  color: #2d3e2b;
+  border-color: rgba(0, 0, 0, 0.05);
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.cart {
-  font-size: 20px;
+/* Enlace activo (cuando estás en esa ruta) */
+.menu li a.active {
+  background-color: #ccd5aeff;
+  color: #2d3e2b;
+  border-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+  }
+
+  .menu {
+    order: 3;
+    flex-basis: 100%;
+    justify-content: center;
+    margin-top: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .menu li a {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+  }
 }

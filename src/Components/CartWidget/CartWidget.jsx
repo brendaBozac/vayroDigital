@@ -19,6 +19,7 @@ const CartWidget = () => {
       <span className={styles.counter}>{totalQuantity}</span>
     </Link>
 
+
   )
 
 }

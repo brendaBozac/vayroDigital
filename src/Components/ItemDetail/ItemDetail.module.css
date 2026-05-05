@@ -1,19 +1,181 @@
+/* ItemDetail.module.css */
+
 .detail {
-  max-width: 500px;
-  margin: 40px auto;
-  text-align: center;
+  max-width: 1120px;
+  margin: 0.4rem auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
 }
 
 .image {
   width: 100%;
-  max-width: 300px;
+  border-radius: 24px;          /* consistente con las cards */
+  background-color: #e9edc9ff;  /* beige de fondo mientras carga */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease;
+}
+
+.image:hover {
+  transform: scale(1.01);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+  color: #4a3b2c;               /* marrón oscuro de la familia light-bronze */
 }
 
 .price {
-  font-size: 1.3rem;
-  font-weight: bold;
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #d4a373ff;             /* light-bronze */
+  margin-bottom: 0.5rem;
 }
 
 .description {
-  color: #555;
+  color: #5a4a3a;               /* marrón suave, más legible que gris */
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.stock {
+  font-size: 0.875rem;
+  color: #7a6a5a;
+  margin-bottom: 0.5rem;
+  background-color: #fefae0ff;  /* cornsilk muy suave */
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 40px;
+  width: fit-content;
+}
+
+.cartMessage {
+  font-size: 0.875rem;
+  color: #d4a373ff;             /* light-bronze */
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  background-color: #faedcdff;  /* papaya-whip */
+  padding: 0.25rem 0.75rem;
+  border-radius: 40px;
+  display: inline-block;
+}
+
+.lowStock {
+  background-color: #faedcdff;  /* papaya-whip en lugar de amarillo fuerte */
+  color: #9b6a3b;               /* marrón cálido */
+  padding: 0.5rem 1rem;
+  border-radius: 40px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  display: inline-block;
+  margin-bottom: 1rem;
+  border-left: 3px solid #d4a373ff;
+}
+
+.actions {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-top: 1px solid rgba(212, 163, 115, 0.2);
+  padding-top: 1.5rem;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Botón primario (Ir al carrito) - idéntico al CartWidget */
+.button {
+  background-color: #ccd5aeff;  /* tea-green */
+  color: #2d3e2b;               /* verde oscuro */
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 40px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.button:hover {
+  background-color: #bec99c;
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Botón secundario (Seguir comprando) - estilo outline con nuestros colores */
+.buttonOutline {
+  background-color: transparent;
+  border: 1px solid #ccd5aeff;  /* borde tea-green */
+  color: #4a3b2c;
+  padding: 0.6rem 1.2rem;
+  border-radius: 40px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.buttonOutline:hover {
+  background-color: #e9edc9ff;  /* beige */
+  border-color: #bec99c;
+  transform: scale(1.02);
+}
+
+.successMessage {
+  color: #8b9d6e;               /* verde suave de la familia tea-green */
+  font-weight: 500;
+  background-color: #e9edc9ff;
+  padding: 0.5rem 1rem;
+  border-radius: 40px;
+  text-align: center;
+}
+
+.warningMessage {
+  color: #b45f2b;               /* naranja terroso */
+  font-weight: 500;
+  background-color: #faedcdff;
+  padding: 0.5rem 1rem;
+  border-radius: 40px;
+  text-align: center;
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.125rem;
+  color: #7a6a5a;
+  background: #fefae0ff;
+  border-radius: 40px;
+  max-width: 400px;
+  margin: 2rem auto;
 }

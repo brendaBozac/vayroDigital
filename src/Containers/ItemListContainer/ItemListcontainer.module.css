@@ -1,0 +1,42 @@
+/* ItemListContainer.module.css */
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.title {
+  font-size: 1.875rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  /* Usamos un color de la paleta, pero con buena legibilidad */
+  color: #4a3b2c;  /* marrón oscuro de la familia del light-bronze */
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Línea decorativa debajo del título (opcional) */
+.title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: var(--light-bronze, #d4a373ff);
+  margin: 0.5rem auto 0;
+  border-radius: 4px;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 2.25rem;
+    text-align: left;
+  }
+  .title::after {
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
